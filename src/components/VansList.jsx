@@ -12,7 +12,7 @@ const VansList = ({ imageUrl, name, price, type, id }) => {
   return (
     <>
       <div className=" w-full flex flex-col gap-2 ">
-        <Link to={`/vans/${id}`}>
+        <Link to={`${id}`}>
           <img
             src={imageUrl}
             alt={name}
