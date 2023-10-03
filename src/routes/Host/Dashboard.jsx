@@ -46,6 +46,7 @@ const Host = () => {
               (van, index) =>
                 index < 3 && (
                   <HostVansList
+                    key={index}
                     name={van.name}
                     imageUrl={van.imageUrl}
                     price={van.price}

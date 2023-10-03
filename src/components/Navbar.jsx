@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../assets/logog.png";
+import { HiUser } from "react-icons/hi";
 
 const Navbar = () => {
   return (
@@ -39,6 +40,16 @@ const Navbar = () => {
               }
             >
               Vans
+            </NavLink>
+          </li>
+          <li className=" hover:underline text-2xl rounded-full border-2 border-[#161616] ">
+            <NavLink
+              to="/login"
+              className={({ isActive }) =>
+                isActive ? " font-bold underline text-[#161616]" : ""
+              }
+            >
+              <HiUser className=" text-[#161616]" />
             </NavLink>
           </li>
         </ul>

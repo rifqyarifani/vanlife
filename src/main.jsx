@@ -17,15 +17,19 @@ import VanDetail from "./routes/Host/Vans/VanDetail.jsx";
 import DetailVansHost from "./components/DetailVansHost.jsx";
 import HostVansPricing from "./routes/Host/Vans/HostVansPricing.jsx";
 import HostVansPhotos from "./routes/Host/Vans/HostVansPhotos.jsx";
+import NotFound from "./routes/NotFound.jsx";
+import Login from "./routes/Login.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
+          <Route path="*" element={<NotFound />} />
           <Route index element={<App />} />
           <Route path="about" element={<About />} />
           <Route path="vans" element={<Vans />} />
+          <Route path="login" element={<Login />} />
           <Route path="vans/:id" element={<DetailVans />} />
           <Route path="host" element={<NavbarHost />}>
             <Route index element={<Dashboard />} />

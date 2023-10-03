@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const VansList = ({ imageUrl, name, price, type, id }) => {
+const VansList = ({ imageUrl, name, price, type, id, search, typeFilter }) => {
   const typeColor =
     type === "simple"
       ? "bg-[#E17654]"
@@ -12,7 +12,7 @@ const VansList = ({ imageUrl, name, price, type, id }) => {
   return (
     <>
       <div className=" w-full flex flex-col gap-2 ">
-        <Link to={`${id}`}>
+        <Link to={`${id}`} state={{ search: search, type: typeFilter }}>
           <img
             src={imageUrl}
             alt={name}
