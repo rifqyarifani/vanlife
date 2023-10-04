@@ -1,5 +1,27 @@
 import { createServer, Model } from "miragejs";
 
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection } from "firebase/firestore/lite";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyCzXUGtiXf5sYdPqSg5oxh0SB_2NRyTV50",
+  authDomain: "vanlife-3c0b5.firebaseapp.com",
+  projectId: "vanlife-3c0b5",
+  storageBucket: "vanlife-3c0b5.appspot.com",
+  messagingSenderId: "826386670319",
+  appId: "1:826386670319:web:6daf20109c98016da2311a",
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const vansCollectionRef = collection(db, "vans");
+
 createServer({
   models: {
     vans: Model,

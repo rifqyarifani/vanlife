@@ -19,6 +19,7 @@ import HostVansPricing from "./routes/Host/Vans/HostVansPricing.jsx";
 import HostVansPhotos from "./routes/Host/Vans/HostVansPhotos.jsx";
 import NotFound from "./routes/NotFound.jsx";
 import Login from "./routes/Login.jsx";
+import AuthRequired from "./components/AuthRequired.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -31,15 +32,17 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="vans" element={<Vans />} />
           <Route path="login" element={<Login />} />
           <Route path="vans/:id" element={<DetailVans />} />
-          <Route path="host" element={<NavbarHost />}>
-            <Route index element={<Dashboard />} />
-            <Route path="income" element={<Income />} />
-            <Route path="reviews" element={<Reviews />} />
-            <Route path="vans" element={<VansHost />} />
-            <Route path="vans/:id" element={<DetailVansHost />}>
-              <Route index element={<VanDetail />} />
-              <Route path="pricing" element={<HostVansPricing />} />
-              <Route path="photos" element={<HostVansPhotos />} />
+          <Route element={<AuthRequired />}>
+            <Route path="host" element={<NavbarHost />}>
+              <Route index element={<Dashboard />} />
+              <Route path="income" element={<Income />} />
+              <Route path="reviews" element={<Reviews />} />
+              <Route path="vans" element={<VansHost />} />
+              <Route path="vans/:id" element={<DetailVansHost />}>
+                <Route index element={<VanDetail />} />
+                <Route path="pricing" element={<HostVansPricing />} />
+                <Route path="photos" element={<HostVansPhotos />} />
+              </Route>
             </Route>
           </Route>
         </Route>
